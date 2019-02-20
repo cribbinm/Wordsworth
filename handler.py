@@ -6,6 +6,9 @@ class WordRepeatError(Exception):
     pass
 
 
+## '<word> +1'
+## '<word> -1'
+
 def validate_input(input):
     """
     :param input:
@@ -18,7 +21,13 @@ def validate_input(input):
     - InputError
     - WordRepeatError
     """
-    pass
+    identifiers = ['+1', '-1', 'Submission:', 'Who is left to vote?', 'Status:']
+
+    for identifier in identifiers:
+        if identifier in input:
+            return True
+
+    raise InputError('Invalid input')
 
 
 def create_error_response(param):
